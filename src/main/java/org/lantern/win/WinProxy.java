@@ -24,7 +24,8 @@ public class WinProxy {
         if (os != null && !os.contains("indows")) {
             return;
         }
-        final File lib = new File(libDir, "winproxy4j.dll");
+        String archDataModel = System.getProperty("sun.arch.data.model");
+        final File lib = new File(libDir, String.format("winproxy4j%s.dll", archDataModel));
         //if (!lib.isFile()) {
         // We just copy it every time since it's a small file and this 
         // allows us not to worry about versions.
